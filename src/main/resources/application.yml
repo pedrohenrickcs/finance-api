@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: finance-api
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/finance}
+    username: ${DB_USER:finance}
+    password: ${DB_PASSWORD:finance}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate   # o schema é do Flyway; o Hibernate só confere se bate com as entidades
+  flyway:
+    enabled: true

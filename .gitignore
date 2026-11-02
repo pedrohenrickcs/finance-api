@@ -1,0 +1,17 @@
+# Gradle / build
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+out/
+
+# Env / secrets
+.env
+*.local
+
+# OS
+.DS_Store

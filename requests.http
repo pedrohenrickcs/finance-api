@@ -1,0 +1,43 @@
+### Funciona direto no IntelliJ (HTTP Client). Suba a API antes: ./gradlew bootRun
+
+### Criar conta
+POST http://localhost:8080/accounts
+Content-Type: application/json
+
+{ "name": "Nubank", "type": "CHECKING", "initialBalance": 1500.00 }
+
+### Listar contas
+GET http://localhost:8080/accounts
+
+### Buscar conta
+GET http://localhost:8080/accounts/1
+
+### Atualizar conta
+PUT http://localhost:8080/accounts/1
+Content-Type: application/json
+
+{ "name": "Nubank PJ", "type": "CHECKING", "initialBalance": 2000.00 }
+
+### Remover conta
+DELETE http://localhost:8080/accounts/1
+
+### Criar categoria
+POST http://localhost:8080/categories
+Content-Type: application/json
+
+{ "name": "Mercado", "type": "EXPENSE" }
+
+### Listar categorias (filtro opcional por tipo)
+GET http://localhost:8080/categories?type=EXPENSE
+
+### Validação: deve retornar 400
+POST http://localhost:8080/accounts
+Content-Type: application/json
+
+{ "name": "", "type": "CHECKING" }
+
+### Duplicada: deve retornar 409 (rode o POST de categoria duas vezes)
+POST http://localhost:8080/categories
+Content-Type: application/json
+
+{ "name": "Mercado", "type": "EXPENSE" }
